@@ -1,12 +1,11 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
-  { 'NMAC427/guess-indent.nvim', opts = {} },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
+  "ellisonleao/gruvbox.nvim",
+    config = function()
+      vim.cmd.colorscheme("gruvbox")
+    end,
   },
+  { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'lewis6991/gitsigns.nvim',
     opts = {

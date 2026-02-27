@@ -20,11 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "plugins" },
-	},
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habamax", "tokyonight" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+	}
 })
