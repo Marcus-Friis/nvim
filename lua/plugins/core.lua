@@ -1,8 +1,7 @@
 return {
   { 'NMAC427/guess-indent.nvim', opts = {} },
-  { 'tpope/vim-fugitive'},
-  { 
-    'brenoprata10/nvim-highlight-colors', 
+  {
+    'brenoprata10/nvim-highlight-colors',
     config = function()
       require('nvim-highlight-colors').setup({})
     end
