@@ -1,11 +1,12 @@
 return {
-  {
-  "ellisonleao/gruvbox.nvim",
-    config = function()
-      vim.cmd.colorscheme("gruvbox")
-    end,
-  },
   { 'NMAC427/guess-indent.nvim', opts = {} },
+  { 'tpope/vim-fugitive'},
+  { 
+    'brenoprata10/nvim-highlight-colors', 
+    config = function()
+      require('nvim-highlight-colors').setup({})
+    end
+  },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
