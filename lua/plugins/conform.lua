@@ -1,4 +1,4 @@
-return { -- Autoformat
+return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
@@ -12,12 +12,17 @@ return { -- Autoformat
   },
   opts = {
     notify_on_error = false,
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = 'fallback',
+    },
     formatters_by_ft = {
-      lua = { 'lua_ls' },
+      lua = { 'stylua' },
       javascript = { "prettier" },
       typescript = { "prettier" },
-      python = { "ty" },
-      svelte = { "prettier" }
+      python = { "ruff_format" },
+      svelte = { "prettier" },
+      ["*"] = {}, -- all other filetypes fall back to LSP
     },
   },
 }
