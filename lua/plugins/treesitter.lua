@@ -3,6 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag",
     },
     branch = "master",
     config = function()
@@ -69,6 +70,14 @@ return {
       }
 
       vim.treesitter.language.register("templ", "templ")
+
+      require("nvim-ts-autotag").setup({
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = true,
+        },
+      })
     end,
   },
   {
