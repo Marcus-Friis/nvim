@@ -79,6 +79,8 @@ autocmd('LspAttach', {
 -- Format options
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+vim.wo.foldlevel = 999
+vim.wo.foldenable = true
 
 -- Fall back to treesitter when LSP isn't ready
 autocmd('LspDetach', {
