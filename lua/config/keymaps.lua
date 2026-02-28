@@ -21,7 +21,10 @@ vim.diagnostic.config {
   jump = { float = true },
 }
 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
+vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

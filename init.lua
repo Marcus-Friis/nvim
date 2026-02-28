@@ -28,11 +28,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Actions
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-
-        -- Diagnostics - using <leader> instead of [ ]
-        vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
-        vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
-        vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
     end
 })
