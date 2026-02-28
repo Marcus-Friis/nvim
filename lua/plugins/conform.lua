@@ -22,6 +22,7 @@ return {
       typescript = { "prettier" },
       python = { "ruff_format" },
       svelte = { "prettier" },
+      markdown = { "prettier" },
       ["*"] = {}, -- all other filetypes fall back to LSP
     },
   },
