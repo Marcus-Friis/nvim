@@ -30,6 +30,12 @@ return {
                 "eslint",
                 "tailwindcss",
                 "svelte",
+                "html",
+                "cssls",
+                "ruff",
+                "marksman",
+                "jsonls",
+                "yamlls"
             },
         })
 
