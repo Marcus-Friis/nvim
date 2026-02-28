@@ -71,7 +71,7 @@ return {
       -- Enable folding
       vim.wo.foldmethod = 'expr'
       vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.wo.foldlevel = 99 -- start with all folds open
+      vim.wo.foldlevel = 999   -- start with all folds open
       vim.wo.foldenable = true -- enable folding but respect foldlevel
 
       vim.treesitter.language.register("templ", "templ")
