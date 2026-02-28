@@ -14,7 +14,7 @@ vim.diagnostic.config {
   underline = { severity = vim.diagnostic.severity.ERROR },
 
   -- Can switch between these as you prefer
-  virtual_text = true, -- Text shows up at the end of the line
+  virtual_text = true,   -- Text shows up at the end of the line
   virtual_lines = false, -- Teest shows up underneath the line, with virtual lines
 
   -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
@@ -43,3 +43,32 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
 })
+
+-- Yank everything in Harpoon list
+vim.keymap.set("n", "<leader>hy", function()
+  local harpoon = require("harpoon")
+  local list = harpoon:list()
+  local result = {}
+
+  for i, item in ipairs(list.items) do
+    local filepath = item.value
+    local filename = vim.fn.fnamemodify(filepath, ":t")
+
+    local lines = vim.fn.readfile(filepath)
+    local content = table.concat(lines, "\n")
+
+    table.insert(result, string.format(
+      "File %d: %s\n---\n%s",
+      i,
+      filename,
+      content
+    ))
+  end
+
+  local final_text = table.concat(result, "\n\n")
+
+  -- Copy to system clipboard
+  vim.fn.setreg("+", final_text)
+
+  print("Copied Harpoon files to clipboard")
+end, { desc = "Copy all Harpoon file contents to clipboard" })
