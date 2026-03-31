@@ -1,5 +1,7 @@
 # init.lua
 
+Works for neovim 0.11.x
+
 ```
 ln -s ~/Desktop/nvim ~/.config/nvim
 ```
