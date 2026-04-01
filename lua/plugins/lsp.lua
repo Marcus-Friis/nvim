@@ -26,7 +26,6 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"ty",
 				"lua_ls",
 				"vtsls",
 				"eslint",
@@ -38,6 +37,7 @@ return {
 				"marksman",
 				"jsonls",
 				"yamlls",
+				"pyright",
 			},
 		})
 
