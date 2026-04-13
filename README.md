@@ -1,6 +1,7 @@
 # init.lua
 
-Works for neovim 0.11.x
+TODO: Update readme
+TODO: split plugins into different files
 
 ```
 ln -s ~/Desktop/nvim ~/.config/nvim
