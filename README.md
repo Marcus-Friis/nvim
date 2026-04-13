@@ -1,5 +1,8 @@
 # init.lua
 
+TODO: Update readme
+TODO: split plugins into different files
+
 ```
 ln -s ~/Desktop/nvim ~/.config/nvim
 ```
