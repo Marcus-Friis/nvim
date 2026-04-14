@@ -35,25 +35,25 @@ vim.keymap.set("n", "<leader>u", require("undotree").open)
 require("nvim-autopairs").setup()
 require("lualine").setup({
     options = {
-        section_separators = { left = "", right = "", },
-        component_separators = { left = "", right = "", },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
     },
 })
 require("gitsigns").setup({
     signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-    }
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+    },
 })
 require("ibl").setup()
 require("telescope").setup({})
 require("nvim-highlight-colors").setup({})
 local pickers = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", pickers.find_files)
-vim.keymap.set('n', '<C-p>', pickers.git_files, {})
+vim.keymap.set("n", "<C-p>", pickers.git_files, {})
 vim.keymap.set("n", "<leader>pg", pickers.live_grep)
 vim.keymap.set("n", "<leader>pb", pickers.buffers)
 vim.keymap.set("n", "<leader>ph", pickers.help_tags)
@@ -70,20 +70,23 @@ vim.keymap.set("n", "<C-e>", function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
 
-vim.keymap.set("n", "<M-1>", function()
+vim.keymap.set("n", "<leader>1", function()
     harpoon:list():select(1)
 end)
-vim.keymap.set("n", "<M-2>", function()
+vim.keymap.set("n", "<leader>2", function()
     harpoon:list():select(2)
 end)
-vim.keymap.set("n", "<M-3>", function()
+vim.keymap.set("n", "<leader>3", function()
     harpoon:list():select(3)
 end)
-vim.keymap.set("n", "<M-4>", function()
+vim.keymap.set("n", "<leader>4", function()
     harpoon:list():select(4)
 end)
-vim.keymap.set("n", "<M-5>", function()
+vim.keymap.set("n", "<leader>5", function()
     harpoon:list():select(5)
+end)
+vim.keymap.set("n", "<leader>6", function()
+    harpoon:list():select(6)
 end)
 
 require("blink.cmp").setup({
@@ -95,22 +98,22 @@ require("blink.cmp").setup({
 
     keymap = {
         -- these are the default blink keymaps
-        ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-        ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
-        ['<C-y>'] = { 'select_and_accept', 'fallback' },
-        ['<C-e>'] = { 'cancel', 'fallback' },
+        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-y>"] = { "select_and_accept", "fallback" },
+        ["<C-e>"] = { "cancel", "fallback" },
 
-        ['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
-        ['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
-        ['<CR>'] = { 'select_and_accept', 'fallback' },
-        ['<Esc>'] = { 'cancel', 'hide_documentation', 'fallback' },
+        ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+        ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
+        ["<Esc>"] = { "cancel", "hide_documentation", "fallback" },
 
-        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-        ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
 
     fuzzy = {
@@ -180,13 +183,19 @@ vim.keymap.set("", "<leader>f", function()
     require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format buffer" })
 
-
 -- INFO: formatting and syntax highlighting
 require("nvim-treesitter.install").update("all")
 -- Ensure parsers are installed
 local ensureInstalled = {
-    "vimdoc", "javascript", "typescript", "lua",
-    "jsdoc", "bash", "python", "svelte"
+    "vimdoc",
+    "javascript",
+    "typescript",
+    "lua",
+    "jsdoc",
+    "bash",
+    "python",
+    "html",
+    "svelte",
 }
 local alreadyInstalled = require("nvim-treesitter.config").get_installed()
 local parsersToInstall = vim.iter(ensureInstalled)
