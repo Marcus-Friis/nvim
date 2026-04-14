@@ -186,7 +186,7 @@ require("nvim-treesitter.install").update("all")
 -- Ensure parsers are installed
 local ensureInstalled = {
     "vimdoc", "javascript", "typescript", "lua",
-    "jsdoc", "bash", "python", "svelte"
+    "jsdoc", "bash", "python", "svelte", "html",
 }
 local alreadyInstalled = require("nvim-treesitter.config").get_installed()
 local parsersToInstall = vim.iter(ensureInstalled)
