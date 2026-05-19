@@ -79,3 +79,5 @@ vim.keymap.set("n", "<leader>hy", function()
 
 	print("Copied Harpoon files to clipboard")
 end, { desc = "Copy all Harpoon file contents to clipboard" })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

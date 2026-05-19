@@ -17,7 +17,7 @@ vim.opt.signcolumn = "yes"
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+    vim.o.clipboard = "unnamedplus"
 end)
 
 -- Enable break indent
@@ -55,29 +55,29 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- Auto remove trailing white space
 autocmd({ "BufWritePre" }, {
-	pattern = "*",
-	command = [[%s/\s\+$//e]],
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
 })
 
 autocmd("LspAttach", {
-	callback = function(e)
-		local opts = { buffer = e.buf }
+    callback = function(e)
+        local opts = { buffer = e.buf }
 
-		-- Navigation
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
+        -- Navigation
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 
-		-- Info
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+        -- Info
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-		-- Actions
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-	end,
+        -- Actions
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    end,
 })
 
 -- Format options
@@ -88,10 +88,10 @@ vim.wo.foldenable = true
 
 -- Fall back to treesitter when LSP isn't ready
 autocmd("LspDetach", {
-	callback = function(args)
-		local buf = args.buf
-		if #vim.lsp.get_clients({ bufnr = buf }) == 0 then
-			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		end
-	end,
+    callback = function(args)
+        local buf = args.buf
+        if #vim.lsp.get_clients({ bufnr = buf }) == 0 then
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        end
+    end,
 })

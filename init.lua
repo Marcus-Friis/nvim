@@ -22,6 +22,7 @@ vim.pack.add({
     "https://github.com/nvim-telescope/telescope.nvim",
     gh("lewis6991/gitsigns.nvim"),
     gh("tpope/vim-fugitive"),
+    gh("stevearc/oil.nvim"),
     { src = gh("ThePrimeagen/harpoon"),                           version = "harpoon2" },
     "https://github.com/stevearc/conform.nvim",
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
@@ -48,6 +49,7 @@ require("gitsigns").setup({
         changedelete = { text = "~" },
     },
 })
+require("oil").setup()
 require("ibl").setup()
 require("telescope").setup({})
 require("nvim-highlight-colors").setup({})
@@ -113,7 +115,7 @@ require("blink.cmp").setup({
         ["<C-b>"] = { "scroll_documentation_up", "fallback" },
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        -- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
 
     fuzzy = {
