@@ -48,6 +48,14 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- exit terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+-- quickfix binds
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "Open quickfix" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "Close quickfix" })
+vim.keymap.set("n", "<leader>qn", "<cmd>cnext<CR>", { desc = "Next quickfix item" })
+vim.keymap.set("n", "<leader>qp", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
+vim.keymap.set("n", "<leader>qf", "<cmd>cfirst<CR>", { desc = "First quickfix item" })
+vim.keymap.set("n", "<leader>ql", "<cmd>clast<CR>", { desc = "Last quickfix item" })
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`
