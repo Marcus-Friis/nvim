@@ -21,10 +21,10 @@ vim.diagnostic.config({
     jump = { float = true },
 })
 
-vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
+vim.keymap.set("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Next diagnostic" })
+vim.keymap.set("n", "<leader>dp", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist)
 
 -- Center screen when using C-d and C-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
