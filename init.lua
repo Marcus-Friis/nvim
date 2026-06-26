@@ -13,17 +13,23 @@ end
 vim.pack.add({
     "https://github.com/ellisonleao/gruvbox.nvim",
     gh("nvim-lua/plenary.nvim"),
-    "https://github.com/nvim-tree/nvim-web-devicons",
-    "https://github.com/windwp/nvim-autopairs",
-    gh("saghen/blink.cmp"),
-    gh("lukas-reineke/indent-blankline.nvim"),
-    "https://github.com/nvim-lualine/lualine.nvim",
-    gh("brenoprata10/nvim-highlight-colors"),
-    "https://github.com/nvim-telescope/telescope.nvim",
+    gh("nvim-tree/nvim-web-devicons"),
+
+    gh("nvim-mini/mini.ai"),
+    gh("nvim-mini/mini.move"),
+    gh("nvim-mini/mini.pairs"),
+    gh("nvim-mini/mini.surround"),
+
+    gh("nvim-telescope/telescope.nvim"),
     gh("lewis6991/gitsigns.nvim"),
     gh("tpope/vim-fugitive"),
     gh("stevearc/oil.nvim"),
+    gh("nvim-lualine/lualine.nvim"),
     { src = gh("ThePrimeagen/harpoon"),                           version = "harpoon2" },
+
+    gh("saghen/blink.cmp"),
+    gh("lukas-reineke/indent-blankline.nvim"),
+    gh("brenoprata10/nvim-highlight-colors"),
     "https://github.com/stevearc/conform.nvim",
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     gh("windwp/nvim-ts-autotag"),
@@ -33,7 +39,11 @@ vim.cmd.colorscheme("gruvbox")
 vim.cmd("packadd nvim.undotree")
 vim.keymap.set("n", "<leader>u", require("undotree").open)
 
-require("nvim-autopairs").setup()
+require('mini.ai').setup()
+require('mini.move').setup()
+require('mini.pairs').setup()
+require('mini.surround').setup()
+
 require("lualine").setup({
     options = {
         section_separators = { left = "", right = "" },
