@@ -11,7 +11,7 @@ end
 
 -- Plugins
 vim.pack.add({
-    "https://github.com/ellisonleao/gruvbox.nvim",
+    gh("ellisonleao/gruvbox.nvim"),
     gh("nvim-lua/plenary.nvim"),
     gh("nvim-tree/nvim-web-devicons"),
 
@@ -25,13 +25,13 @@ vim.pack.add({
     gh("tpope/vim-fugitive"),
     gh("stevearc/oil.nvim"),
     gh("nvim-lualine/lualine.nvim"),
-    { src = gh("ThePrimeagen/harpoon"),                           version = "harpoon2" },
+    { src = gh("ThePrimeagen/harpoon"),            version = "harpoon2" },
 
     gh("saghen/blink.cmp"),
     gh("lukas-reineke/indent-blankline.nvim"),
     gh("brenoprata10/nvim-highlight-colors"),
-    "https://github.com/stevearc/conform.nvim",
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    gh("stevearc/conform.nvim"),
+    { src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
     gh("windwp/nvim-ts-autotag"),
 }, { confirm = false })
 
@@ -234,61 +234,3 @@ vim.api.nvim_create_autocmd("FileType", {
 --     enable_close_on_slash = true,
 -- })
 --
-
-
--- TEST iron.nvim
-vim.pack.add({
-    gh("Vigemus/iron.nvim"),
-}, { confirm = false })
-local iron = require("iron.core")
-local view = require("iron.view")
-local common = require("iron.fts.common")
-
-iron.setup {
-    config = {
-        scratch_repl = true,
-        repl_definition = {
-            sh = {
-                command = { "zsh" }
-            },
-            python = {
-                command = { "uv", "run", "python" },
-                format = common.bracketed_paste_python,
-                block_dividers = { "# %%", "#%%" },
-                env = { PYTHON_BASIC_REPL = "1" }
-            }
-        },
-        repl_filetype = function(bufnr, ft)
-            return ft
-        end,
-        dap_integration = true,
-        repl_open_cmd = view.split.vertical.botright(50)
-    },
-    keymaps = {
-        toggle_repl = "<space>rr",  -- toggles the repl open and closed.
-        restart_repl = "<space>rR", -- calls `IronRestart` to restart the repl
-        send_motion = "<space>sc",
-        visual_send = "<space>sc",
-        send_file = "<space>sf",
-        send_line = "<space>sl",
-        send_paragraph = "<space>sp",
-        send_until_cursor = "<space>su",
-        send_mark = "<space>sm",
-        send_code_block = "<space>sb",
-        send_code_block_and_move = "<space>sn",
-        mark_motion = "<space>mc",
-        mark_visual = "<space>mc",
-        remove_mark = "<space>md",
-        cr = "<space>s<cr>",
-        interrupt = "<space>s<space>",
-        exit = "<space>sq",
-        clear = "<space>cl",
-    },
-    highlight = {
-        italic = true
-    },
-    ignore_blank_lines = true,
-}
-
-vim.keymap.set('n', '<space>rf', '<cmd>IronFocus<cr>')
-vim.keymap.set('n', '<space>rh', '<cmd>IronHide<cr>')
